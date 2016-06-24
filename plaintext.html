@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Plain Text - Jade</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="text-center">Jade</h1>
+            <p class="text-center">Plain Text</p>
+        </div>
+    </div>
+    <!-- header end -->
+    <!-- body -->
+    <div class="container">
+        <div class="row">
+            <!-- isi -->
+            <div class="col-sm-9">
+                <h1>Plain Text</h1>
+                <p>Jade provides three common ways of getting plain text. They are useful in different situations</p>
+                <h2>Piped Text</h2>
+                <p>The simplest way of adding plain text to templates is to prefix the line with a | character (pronounced &quot;pipe&quot;).</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>| Plain text can include &lt;strong&gt;html&lt;/strong&gt;
+p
+  | It must always be on its own line</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>Plain text can include &lt;strong&gt;html&lt;/strong&gt;
+&lt;p&gt;It must always be on its own line&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Inline in a Tag</h2>
+                <p>Since it&#39;s a common use case, you can put text in a tag just by adding it inline after a space.</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>p Plain text can include &lt;strong&gt;html&lt;/strong&gt;</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;p&gt;Plain text can include &lt;strong&gt;html&lt;/strong&gt;&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Block in a Tag</h2>
+                <p>Often you might want large blocks of text within a tag. A good example is with inline scripts or styles. To do this, just add a . after the tag (with no preceding space):</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>script.
+  if (usingJade)
+  console.log(&#39;you are awesome&#39;)
+  else
+  console.log(&#39;use jade&#39;)</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;script&gt;
+  if (usingJade)
+  console.log(&#39;you are awesome&#39;)
+  else
+  console.log(&#39;use jade&#39;)
+&lt;/script&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            <!-- isi end -->
+            <!-- sidebar -->
+            <div class="col-sm-3">
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item">beranda</a>
+                    <a href="attributes.html" class="list-group-item">attributes</a>
+                    <a href="case.html" class="list-group-item">case</a>
+                    <a href="code.html" class="list-group-item">code</a>
+                    <a href="comments.html" class="list-group-item">comments</a>
+                    <a href="conditionals.html" class="list-group-item">conditionals</a>
+                    <a href="doctype.html" class="list-group-item">doctype</a>
+                    <a href="extends.html" class="list-group-item">extends</a>
+                    <a href="filters.html" class="list-group-item">filters</a>
+                    <a href="includes.html" class="list-group-item">includes</a>
+                    <a href="inheritance.html" class="list-group-item">inheritance</a>
+                    <a href="interpolation.html" class="list-group-item">interpolation</a>
+                    <a href="iteration.html" class="list-group-item">iteration</a>
+                    <a href="mixins.html" class="list-group-item">mixins</a>
+                    <a href="plaintext.html" class="list-group-item active">plain text</a>
+                    <a href="tags.html" class="list-group-item">tags</a>
+                </div>
+            </div>
+            <!-- sidebar end -->
+        </div>
+    </div>
+    <!-- body end -->
+    <!-- footer -->
+    <hr>
+    <p class="text-center">Disusun oleh <a href="http://muhammadzaini.com" target="_blank">Muhammad Zaini .com</a></p>
+    <br>
+    <!-- footer end -->
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

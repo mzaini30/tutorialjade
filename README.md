@@ -1,3 +1,3 @@
 # tutorialjade
 
-tes
+http://muhammadzaini.com/tutorialjade

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Doctype - Jade</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="text-center">Jade</h1>
+            <p class="text-center">Doctype</p>
+        </div>
+    </div>
+    <!-- header end -->
+    <!-- body -->
+    <div class="container">
+        <div class="row">
+            <!-- isi -->
+            <div class="col-sm-9">
+                <h1>Doctype</h1>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>doctype html</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Doctype Shortcuts</h2>
+                <p>There are shortcuts for commonly used doctypes:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>doctype html</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>doctype xml</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>doctype transitional</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>doctype strict</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>doctype frameset</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>doctype 1.1</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>doctype basic</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML Basic 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd&quot;&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>doctype mobile</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//WAPFORUM//DTD XHTML Mobile 1.2//EN&quot; &quot;http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd&quot;&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Custom Doctypes</h2>
+                <p>You can also use your own literal custom doctype:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>doctype html PUBLIC &quot;-//W3C//DTD XHTML Basic 1.1//EN&quot;</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML Basic 1.1//EN&quot;&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Doctype Option</h2>
+                <p>The doctype affects compilation in some other cases, for example self closing tags and boolean attributes). For this reason, you might sometimes want to specify it manually. You can do this via the doctype option. e.g.</p>
+                <pre><code>var jade = require(&#39;./&#39;);
+
+// Compile a function
+var fn = jade.compile(&#39;img(src=&quot;foo.png&quot;)&#39;, {doctype: &#39;xml&#39;});
+
+// Render the function
+var html = fn({});
+// =&gt; &#39;&lt;img src=&quot;foo.png&quot;&gt;&lt;/img&gt;&#39;
+
+// Compile a function
+var fn = jade.compile(&#39;img(src=&quot;foo.png&quot;)&#39;, {doctype: &#39;html&#39;});
+
+// Render the function
+var html = fn({});
+// =&gt; &#39;&lt;img src=&quot;foo.png&quot;&gt;&#39;</code></pre>
+            </div>
+            <!-- isi end -->
+            <!-- sidebar -->
+            <div class="col-sm-3">
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item">beranda</a>
+                    <a href="attributes.html" class="list-group-item">attributes</a>
+                    <a href="case.html" class="list-group-item">case</a>
+                    <a href="code.html" class="list-group-item">code</a>
+                    <a href="comments.html" class="list-group-item">comments</a>
+                    <a href="conditionals.html" class="list-group-item">conditionals</a>
+                    <a href="doctype.html" class="list-group-item active">doctype</a>
+                    <a href="extends.html" class="list-group-item">extends</a>
+                    <a href="filters.html" class="list-group-item">filters</a>
+                    <a href="includes.html" class="list-group-item">includes</a>
+                    <a href="inheritance.html" class="list-group-item">inheritance</a>
+                    <a href="interpolation.html" class="list-group-item">interpolation</a>
+                    <a href="iteration.html" class="list-group-item">iteration</a>
+                    <a href="mixins.html" class="list-group-item">mixins</a>
+                    <a href="plaintext.html" class="list-group-item">plain text</a>
+                    <a href="tags.html" class="list-group-item">tags</a>
+                </div>
+            </div>
+            <!-- sidebar end -->
+        </div>
+    </div>
+    <!-- body end -->
+    <!-- footer -->
+    <hr>
+    <p class="text-center">Disusun oleh <a href="http://muhammadzaini.com" target="_blank">Muhammad Zaini .com</a></p>
+    <br>
+    <!-- footer end -->
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

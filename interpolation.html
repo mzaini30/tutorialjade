@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Interpolation - Jade</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="text-center">Jade</h1>
+            <p class="text-center">Interpolation</p>
+        </div>
+    </div>
+    <!-- header end -->
+    <!-- body -->
+    <div class="container">
+        <div class="row">
+            <!-- isi -->
+            <div class="col-sm-9">
+                <h1>Interpolation</h1>
+                <p>Jade provides operators for a variety of your different interpolative needs.</p>
+                <h2>String Interpolation, Escaped</h2>
+                <p>Consider the placement of the template locals title, author, and theGreat in the following template.</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>- var title = &quot;On Dogs: Man&#39;s Best Friend&quot;;
+- var author = &quot;enlore&quot;;
+- var theGreat = &quot;&lt;span&gt;escape!&lt;/span&gt;&quot;;
+
+h1= title
+p Written with love by #{author}
+p This will be safe: #{theGreat}</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;h1&gt;On Dogs: Man&#39;s Best Friend&lt;/h1&gt;
+&lt;p&gt;Written with love by enlore&lt;/p&gt;
+&lt;p&gt;This will be safe: &amp;lt;span&amp;gt;escape!&amp;lt;/span&amp;gt;&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+                <p>title follows the basic pattern for evaluating a template local, but the code in between #{ and } is evaluated, escaped, and the result buffered into the output of the template being rendered.</p>
+                <p>This can be any valid Javascript expression, so you can do whatever feels good.</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>- var msg = &quot;not my inside voice&quot;;
+p This is #{msg.toUpperCase()}</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;p&gt;This is NOT MY INSIDE VOICE&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>String Interpolation, Unescaped</h2>
+                <p>You don&#39;t have to play it safe. You can buffer unescaped values into your templates, too.</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>- var riskyBusiness = &quot;&lt;em&gt;Some of the girls are wearing my mother&#39;s clothing.&lt;/em&gt;&quot;;
+.quote
+  p Joel: !{riskyBusiness}</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;div class=&quot;quote&quot;&gt;
+  &lt;p&gt;Joel: &lt;em&gt;Some of the girls are wearing my mother&#39;s clothing.&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+                <h3>Danger</h3>
+                <p>Keep in mind that buffering unescaped content into your templates can be mighty risky if that content comes fresh from your users. Never trust user input!</p>
+                <h2>Tag Interpolation</h2>
+                <p>If you take a look at this page&#39;s source on GitHub, you&#39;ll see several places where the tag interpolation operator is used, like so.</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>p.
+  If you take a look at this page&#39;s source #[a(target=&quot;blank&quot;, href=&quot;https://github.com/jadejs/jade/blob/master/docs/views/reference/interpolation.jade&quot;) on GitHub],
+  you&#39;ll see several places where the tag interpolation operator is
+  used, like so.</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;p&gt;If you take a look at this page&#39;s source &lt;a target=&quot;blank&quot; href=&quot;https://github.com/jadejs/jade/blob/master/docs/views/reference/interpolation.jade&quot;&gt;on GitHub&lt;/a&gt;,
+  you&#39;ll see several places where the tag interpolation operator is
+  used, like so.
+&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+                <p>You could accomplish the same thing by writing an HTML tag inline with your Jade, but then what&#39;s the point of writing the Jade? Wrap an inline Jade tag declaration in #[ and ] and it&#39;ll be evaluated and buffered into the content of its containing tag.</p>
+            </div>
+            <!-- isi end -->
+            <!-- sidebar -->
+            <div class="col-sm-3">
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item">beranda</a>
+                    <a href="attributes.html" class="list-group-item">attributes</a>
+                    <a href="case.html" class="list-group-item">case</a>
+                    <a href="code.html" class="list-group-item">code</a>
+                    <a href="comments.html" class="list-group-item">comments</a>
+                    <a href="conditionals.html" class="list-group-item">conditionals</a>
+                    <a href="doctype.html" class="list-group-item">doctype</a>
+                    <a href="extends.html" class="list-group-item">extends</a>
+                    <a href="filters.html" class="list-group-item">filters</a>
+                    <a href="includes.html" class="list-group-item">includes</a>
+                    <a href="inheritance.html" class="list-group-item">inheritance</a>
+                    <a href="interpolation.html" class="list-group-item active">interpolation</a>
+                    <a href="iteration.html" class="list-group-item">iteration</a>
+                    <a href="mixins.html" class="list-group-item">mixins</a>
+                    <a href="plaintext.html" class="list-group-item">plain text</a>
+                    <a href="tags.html" class="list-group-item">tags</a>
+                </div>
+            </div>
+            <!-- sidebar end -->
+        </div>
+    </div>
+    <!-- body end -->
+    <!-- footer -->
+    <hr>
+    <p class="text-center">Disusun oleh <a href="http://muhammadzaini.com" target="_blank">Muhammad Zaini .com</a></p>
+    <br>
+    <!-- footer end -->
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

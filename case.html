@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Case - Jade</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="text-center">Jade</h1>
+            <p class="text-center">Case</p>
+        </div>
+    </div>
+    <!-- header end -->
+    <!-- body -->
+    <div class="container">
+        <div class="row">
+            <!-- isi -->
+            <div class="col-sm-9">
+                <h1>Case</h1>
+                <p>The case statement is a shorthand for JavaScript&#39;s switch statement and takes the following form:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>- var friends = 10
+case friends
+  when 0
+    p you have no friends
+  when 1
+    p you have a friend
+  default
+    p you have #{friends} friends</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;p&gt;you have 10 friends&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Case Fall Through</h2>
+                <p>You can use fall through just like in a select statement in JavaScript</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>- var friends = 0
+case friends
+  when 0
+  when 1
+    p you have very few friends
+  default
+    p you have #{friends} friends</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;p&gt;you have very few friends&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Block Expansion</h2>
+                <p>Block expansion may also be used:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>- var friends = 1
+case friends
+  when 0: p you have no friends
+  when 1: p you have a friend
+  default: p you have #{friends} friends</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;p&gt;you have a friend&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            <!-- isi end -->
+            <!-- sidebar -->
+            <div class="col-sm-3">
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item">beranda</a>
+                    <a href="attributes.html" class="list-group-item">attributes</a>
+                    <a href="case.html" class="list-group-item active">case</a>
+                    <a href="code.html" class="list-group-item">code</a>
+                    <a href="comments.html" class="list-group-item">comments</a>
+                    <a href="conditionals.html" class="list-group-item">conditionals</a>
+                    <a href="doctype.html" class="list-group-item">doctype</a>
+                    <a href="extends.html" class="list-group-item">extends</a>
+                    <a href="filters.html" class="list-group-item">filters</a>
+                    <a href="includes.html" class="list-group-item">includes</a>
+                    <a href="inheritance.html" class="list-group-item">inheritance</a>
+                    <a href="interpolation.html" class="list-group-item">interpolation</a>
+                    <a href="iteration.html" class="list-group-item">iteration</a>
+                    <a href="mixins.html" class="list-group-item">mixins</a>
+                    <a href="plaintext.html" class="list-group-item">plain text</a>
+                    <a href="tags.html" class="list-group-item">tags</a>
+                </div>
+            </div>
+            <!-- sidebar end -->
+        </div>
+    </div>
+    <!-- body end -->
+    <!-- footer -->
+    <hr>
+    <p class="text-center">Disusun oleh <a href="http://muhammadzaini.com" target="_blank">Muhammad Zaini .com</a></p>
+    <br>
+    <!-- footer end -->
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

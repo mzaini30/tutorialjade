@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mixins - Jade</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="text-center">Jade</h1>
+            <p class="text-center">Mixins</p>
+        </div>
+    </div>
+    <!-- header end -->
+    <!-- body -->
+    <div class="container">
+        <div class="row">
+            <!-- isi -->
+            <div class="col-sm-9">
+                <h1>Mixins</h1>
+                <p>Mixins allow you to create reusable blocks of jade.</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>//- Declaration
+mixin list
+  ul
+  li foo
+  li bar
+  li baz
+//- Use
++list
++list</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;ul&gt;
+  &lt;li&gt;foo&lt;/li&gt;
+  &lt;li&gt;bar&lt;/li&gt;
+  &lt;li&gt;baz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+  &lt;li&gt;foo&lt;/li&gt;
+  &lt;li&gt;bar&lt;/li&gt;
+  &lt;li&gt;baz&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                </div>
+                <p>They are compiled to functions and can take arguments:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>mixin pet(name)
+  li.pet= name
+ul
+  +pet(&#39;cat&#39;)
+  +pet(&#39;dog&#39;)
+  +pet(&#39;pig&#39;)</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;ul&gt;
+  &lt;li class=&quot;pet&quot;&gt;cat&lt;/li&gt;
+  &lt;li class=&quot;pet&quot;&gt;dog&lt;/li&gt;
+  &lt;li class=&quot;pet&quot;&gt;pig&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Mixin Blocks</h2>
+                <p>Mixins can also take a block of jade to act as the content:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>mixin article(title)
+  .article
+  .article-wrapper
+    h1= title
+    if block
+    block
+    else
+    p No content provided
+
++article(&#39;Hello world&#39;)
+
++article(&#39;Hello world&#39;)
+  p This is my
+  p Amazing article</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;div class=&quot;article&quot;&gt;
+  &lt;div class=&quot;article-wrapper&quot;&gt;
+  &lt;h1&gt;Hello world&lt;/h1&gt;
+  &lt;p&gt;No content provided&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;article&quot;&gt;
+  &lt;div class=&quot;article-wrapper&quot;&gt;
+  &lt;h1&gt;Hello world&lt;/h1&gt;
+  &lt;p&gt;This is my&lt;/p&gt;
+  &lt;p&gt;Amazing article&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Mixin Attributes</h2>
+                <p>Mixins also get an implicit attributes argument taken from the attributes passed to the mixin:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>mixin link(href, name)
+  //- attributes == {class: &quot;btn&quot;}
+  a(class!=attributes.class, href=href)= name
+
++link(&#39;/foo&#39;, &#39;foo&#39;)(class=&quot;btn&quot;)</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;a href=&quot;/foo&quot; class=&quot;btn&quot;&gt;foo&lt;/a&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Note</h2>
+                <p>The values in attributes are already escaped so you should use != to avoid escaping them a second time (see also unescaped attributes). You can also use with &amp;attributes (see also &amp;attributes)</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>mixin link(href, name)
+  a(href=href)&amp;attributes(attributes)= name
+
++link(&#39;/foo&#39;, &#39;foo&#39;)(class=&quot;btn&quot;)</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;a href=&quot;/foo&quot; class=&quot;btn&quot;&gt;foo&lt;/a&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Rest Arguments</h2>
+                <p>You can write mixins that take an unknown number of arguments using the &quot;rest arguments&quot; syntax. e.g.</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>mixin list(id, ...items)
+  ul(id=id)
+  each item in items
+    li= item
+
++list(&#39;my-list&#39;, 1, 2, 3, 4)</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;ul id=&quot;my-list&quot;&gt;
+  &lt;li&gt;1&lt;/li&gt;
+  &lt;li&gt;2&lt;/li&gt;
+  &lt;li&gt;3&lt;/li&gt;
+  &lt;li&gt;4&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            <!-- isi end -->
+            <!-- sidebar -->
+            <div class="col-sm-3">
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item">beranda</a>
+                    <a href="attributes.html" class="list-group-item">attributes</a>
+                    <a href="case.html" class="list-group-item">case</a>
+                    <a href="code.html" class="list-group-item">code</a>
+                    <a href="comments.html" class="list-group-item">comments</a>
+                    <a href="conditionals.html" class="list-group-item">conditionals</a>
+                    <a href="doctype.html" class="list-group-item">doctype</a>
+                    <a href="extends.html" class="list-group-item">extends</a>
+                    <a href="filters.html" class="list-group-item">filters</a>
+                    <a href="includes.html" class="list-group-item">includes</a>
+                    <a href="inheritance.html" class="list-group-item">inheritance</a>
+                    <a href="interpolation.html" class="list-group-item">interpolation</a>
+                    <a href="iteration.html" class="list-group-item">iteration</a>
+                    <a href="mixins.html" class="list-group-item active">mixins</a>
+                    <a href="plaintext.html" class="list-group-item">plain text</a>
+                    <a href="tags.html" class="list-group-item">tags</a>
+                </div>
+            </div>
+            <!-- sidebar end -->
+        </div>
+    </div>
+    <!-- body end -->
+    <!-- footer -->
+    <hr>
+    <p class="text-center">Disusun oleh <a href="http://muhammadzaini.com" target="_blank">Muhammad Zaini .com</a></p>
+    <br>
+    <!-- footer end -->
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Comments - Jade</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="text-center">Jade</h1>
+            <p class="text-center">Comments</p>
+        </div>
+    </div>
+    <!-- header end -->
+    <!-- body -->
+    <div class="container">
+        <div class="row">
+            <!-- isi -->
+            <div class="col-sm-9">
+                <h1>Comments</h1>
+                <p>Single line comments look the same as JavaScript comments and must be placed on their own line:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>// just some paragraphs
+p foo
+p bar</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;!-- just some paragraphs--&gt;
+&lt;p&gt;foo&lt;/p&gt;
+&lt;p&gt;bar&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+                <p>Jade also supports unbuffered comments, by simply adding a hyphen</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>//- will not output within markup
+p foo
+p bar</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;p&gt;foo&lt;/p&gt;
+&lt;p&gt;bar&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Block Comments</h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>A block comment is legal as well:</p>
+                        <pre><code>body
+  //
+    As much text as you want
+    can go here.</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <p>As much text as you want?</p>
+                        <pre><code>&lt;body&gt;
+  &lt;!--
+  As much text as you want
+  can go here.
+  --&gt;
+&lt;/body&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Conditional Comments</h2>
+                <p>Jade does not have any special syntax for conditional comments. If your line begins with &lt; then it is treated as plain text. So just use normal HTML style conditional comments:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>&lt;!--[if IE 8]&gt;
+&lt;html lang=&quot;en&quot; class=&quot;lt-ie9&quot;&gt;
+&lt;![endif]--&gt;
+&lt;!--[if gt IE 8]&gt;&lt;!--&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;!--&lt;![endif]--&gt;</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;html lang=&quot;en&quot; class=&quot;lt-ie9&quot;&gt;?
+&lt;!--[if IE 8]&gt;
+&lt;html lang=&quot;en&quot; class=&quot;lt-ie9&quot;&gt;
+&lt;![endif]--&gt;
+&lt;!--[if gt IE 8]&gt;&lt;!--&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;!--&lt;![endif]--&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            <!-- isi end -->
+            <!-- sidebar -->
+            <div class="col-sm-3">
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item">beranda</a>
+                    <a href="attributes.html" class="list-group-item">attributes</a>
+                    <a href="case.html" class="list-group-item">case</a>
+                    <a href="code.html" class="list-group-item">code</a>
+                    <a href="comments.html" class="list-group-item active">comments</a>
+                    <a href="conditionals.html" class="list-group-item">conditionals</a>
+                    <a href="doctype.html" class="list-group-item">doctype</a>
+                    <a href="extends.html" class="list-group-item">extends</a>
+                    <a href="filters.html" class="list-group-item">filters</a>
+                    <a href="includes.html" class="list-group-item">includes</a>
+                    <a href="inheritance.html" class="list-group-item">inheritance</a>
+                    <a href="interpolation.html" class="list-group-item">interpolation</a>
+                    <a href="iteration.html" class="list-group-item">iteration</a>
+                    <a href="mixins.html" class="list-group-item">mixins</a>
+                    <a href="plaintext.html" class="list-group-item">plain text</a>
+                    <a href="tags.html" class="list-group-item">tags</a>
+                </div>
+            </div>
+            <!-- sidebar end -->
+        </div>
+    </div>
+    <!-- body end -->
+    <!-- footer -->
+    <hr>
+    <p class="text-center">Disusun oleh <a href="http://muhammadzaini.com" target="_blank">Muhammad Zaini .com</a></p>
+    <br>
+    <!-- footer end -->
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

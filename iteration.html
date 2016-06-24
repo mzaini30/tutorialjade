@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Iteration - Jade</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="text-center">Jade</h1>
+            <p class="text-center">Iteration</p>
+        </div>
+    </div>
+    <!-- header end -->
+    <!-- body -->
+    <div class="container">
+        <div class="row">
+            <!-- isi -->
+            <div class="col-sm-9">
+                <h1>Iteration</h1>
+                <p>Jade supports two primary methods of iteration, each and while.</p>
+                <h2>each</h2>
+                <p>Jade&#39;s first-class iteration syntax makes it easier to iterate over arrays and objects within a template:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>ul
+  each val in [1, 2, 3, 4, 5]
+  li= val</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;ul&gt;
+  &lt;li&gt;1&lt;/li&gt;
+  &lt;li&gt;2&lt;/li&gt;
+  &lt;li&gt;3&lt;/li&gt;
+  &lt;li&gt;4&lt;/li&gt;
+  &lt;li&gt;5&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                </div>
+                <p>You can also get the index as you iterate:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>ul
+  each val, index in [&#39;zero&#39;, &#39;one&#39;, &#39;two&#39;]
+  li= index + &#39;: &#39; + val</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;ul&gt;
+  &lt;li&gt;0: zero&lt;/li&gt;
+  &lt;li&gt;1: one&lt;/li&gt;
+  &lt;li&gt;2: two&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                </div>
+                <p>Jade also lets you iterate over the keys in an object:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>ul
+  each val, index in {1:&#39;one&#39;,2:&#39;two&#39;,3:&#39;three&#39;}
+  li= index + &#39;: &#39; + val</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;ul&gt;
+  &lt;li&gt;1: one&lt;/li&gt;
+  &lt;li&gt;2: two&lt;/li&gt;
+  &lt;li&gt;3: three&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                </div>
+                <p>The object or array to iterate over is just plain JavaScript so it can be a variable or the result of a function call or almost anything else. e.g.</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>- var values = [];
+ul
+  each val in values.length ? values : [&#39;There are no values&#39;]
+  li= val</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;ul&gt;
+  &lt;li&gt;There are no values&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                </div>
+                <p>You can also use for as an alias of each.</p>
+                <h2>while</h2>
+                <p>You can also use while to create a loop:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>- var n = 0
+ul
+  while n &lt; 4
+  li= n++</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;ul&gt;
+  &lt;li&gt;0&lt;/li&gt;
+  &lt;li&gt;1&lt;/li&gt;
+  &lt;li&gt;2&lt;/li&gt;
+  &lt;li&gt;3&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            <!-- isi end -->
+            <!-- sidebar -->
+            <div class="col-sm-3">
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item">beranda</a>
+                    <a href="attributes.html" class="list-group-item">attributes</a>
+                    <a href="case.html" class="list-group-item">case</a>
+                    <a href="code.html" class="list-group-item">code</a>
+                    <a href="comments.html" class="list-group-item">comments</a>
+                    <a href="conditionals.html" class="list-group-item">conditionals</a>
+                    <a href="doctype.html" class="list-group-item">doctype</a>
+                    <a href="extends.html" class="list-group-item">extends</a>
+                    <a href="filters.html" class="list-group-item">filters</a>
+                    <a href="includes.html" class="list-group-item">includes</a>
+                    <a href="inheritance.html" class="list-group-item">inheritance</a>
+                    <a href="interpolation.html" class="list-group-item">interpolation</a>
+                    <a href="iteration.html" class="list-group-item active">iteration</a>
+                    <a href="mixins.html" class="list-group-item">mixins</a>
+                    <a href="plaintext.html" class="list-group-item">plain text</a>
+                    <a href="tags.html" class="list-group-item">tags</a>
+                </div>
+            </div>
+            <!-- sidebar end -->
+        </div>
+    </div>
+    <!-- body end -->
+    <!-- footer -->
+    <hr>
+    <p class="text-center">Disusun oleh <a href="http://muhammadzaini.com" target="_blank">Muhammad Zaini .com</a></p>
+    <br>
+    <!-- footer end -->
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

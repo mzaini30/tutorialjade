@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Includes - Jade</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="text-center">Jade</h1>
+            <p class="text-center">Includes</p>
+        </div>
+    </div>
+    <!-- header end -->
+    <!-- body -->
+    <div class="container">
+        <div class="row">
+            <!-- isi -->
+            <div class="col-sm-9">
+                <h1>Includes</h1>
+                <p>Includes allow you to insert the contents of one jade file into another.</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>//- index.jade
+doctype html
+html
+  include ./includes/head.jade
+  body
+    h1 My Site
+    p Welcome to my super lame site.
+    include ./includes/foot.jade</code></pre>
+                        <pre><code>//- includes/head.jade
+head
+  title My Site
+  script(src=&#39;/javascripts/jquery.js&#39;)
+  script(src=&#39;/javascripts/app.js&#39;)</code></pre>
+                        <pre><code>//- includes/foot.jade
+#footer
+  p Copyright (c) foobar</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Site&lt;/title&gt;
+    &lt;script src=&#39;/javascripts/jquery.js&#39;&gt;&lt;/script&gt;
+    &lt;script src=&#39;/javascripts/app.js&#39;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;My Site&lt;/h1&gt;
+    &lt;p&gt;Welcome to my super lame site.&lt;/p&gt;
+    &lt;div id=&quot;footer&quot;&gt;
+      &lt;p&gt;Copyright (c) foobar&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Including Plain Text</h2>
+                <p>Including files that are not jade just includes the raw text.</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>//- index.jade
+doctype html
+html
+  head
+    style
+      include style.css
+  body
+    h1 My Site
+    p Welcome to my super lame site.
+    script
+      include script.js
+/* style.css */
+h1 { color: red; }</code></pre>
+                        <pre><code>// script.js
+console.log(&#39;You are awesome&#39;);</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;style&gt;
+      /* style.css */
+      h1 { color: red; }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;My Site&lt;/h1&gt;
+    &lt;p&gt;Welcome to my super lame site.&lt;/p&gt;
+    &lt;script&gt;
+      // script.js
+      console.log(&#39;You are awesome&#39;);
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Including Filtered Text</h2>
+                <p>You can combine filters with includes to filter things as you include them.</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>//- index.jade
+doctype html
+html
+  head
+    title An Article
+  body
+    include:markdown article.md</code></pre>
+                        <pre><code># article.md
+
+This is an article written in markdown.</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;An Article&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;article.md&lt;/h1&gt;
+    &lt;p&gt;This is an article written in markdown.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            <!-- isi end -->
+            <!-- sidebar -->
+            <div class="col-sm-3">
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item">beranda</a>
+                    <a href="attributes.html" class="list-group-item">attributes</a>
+                    <a href="case.html" class="list-group-item">case</a>
+                    <a href="code.html" class="list-group-item">code</a>
+                    <a href="comments.html" class="list-group-item">comments</a>
+                    <a href="conditionals.html" class="list-group-item">conditionals</a>
+                    <a href="doctype.html" class="list-group-item">doctype</a>
+                    <a href="extends.html" class="list-group-item">extends</a>
+                    <a href="filters.html" class="list-group-item">filters</a>
+                    <a href="includes.html" class="list-group-item active">includes</a>
+                    <a href="inheritance.html" class="list-group-item">inheritance</a>
+                    <a href="interpolation.html" class="list-group-item">interpolation</a>
+                    <a href="iteration.html" class="list-group-item">iteration</a>
+                    <a href="mixins.html" class="list-group-item">mixins</a>
+                    <a href="plaintext.html" class="list-group-item">plain text</a>
+                    <a href="tags.html" class="list-group-item">tags</a>
+                </div>
+            </div>
+            <!-- sidebar end -->
+        </div>
+    </div>
+    <!-- body end -->
+    <!-- footer -->
+    <hr>
+    <p class="text-center">Disusun oleh <a href="http://muhammadzaini.com" target="_blank">Muhammad Zaini .com</a></p>
+    <br>
+    <!-- footer end -->
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

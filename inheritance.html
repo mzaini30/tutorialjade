@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inheritance - Jade</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="text-center">Jade</h1>
+            <p class="text-center">Inheritance</p>
+        </div>
+    </div>
+    <!-- header end -->
+    <!-- body -->
+    <div class="container">
+        <div class="row">
+            <!-- isi -->
+            <div class="col-sm-9">
+                <h1>Template inheritance</h1>
+                <p>Jade supports template inheritance via the block and extends keywords. A block is simply a &quot;block&quot; of Jade that may be replaced within a child template. This process is recursive.</p>
+                <p>Jade blocks can provide default content if desired, however optional as shown below by block scripts, block content, and block foot.</p>
+                <h2>layout.jade</h2>
+                <pre><code>html
+  head
+    title My Site - #{title}
+    block scripts
+      script(src=&#39;/jquery.js&#39;)
+  body
+    block content
+    block foot
+      #footer
+        p some footer content</code></pre>
+                <p>Now to extend the layout, simply create a new file and use the extends directive as shown below, giving the path (with or without the .jade extension). You may now define one or more blocks that will override the parent block content, note that here the foot block is not redefined and will output &quot;some footer content&quot;.</p>
+                <h2>page-a.jade</h2>
+                <pre><code>extends ./layout.jade
+
+block scripts
+  script(src=&#39;/jquery.js&#39;)
+  script(src=&#39;/pets.js&#39;)
+
+block content
+  h1= title
+  each pet in pets
+    include pet</code></pre>
+                <p>It&#39;s also possible to override a block to provide additional blocks, as shown in the following example where content now exposes a sidebar and primary block for overriding, or the child template could override content all together.</p>
+                <h2>sub-layout.jade</h2>
+                <pre><code>extends ./layout.jade
+
+block content
+  .sidebar
+    block sidebar
+      p nothing
+  .primary
+    block primary
+      p nothing</code></pre>
+                <h2>page-b.jade</h2>
+                <pre><code>extends ./sub-layout.jade
+
+block content
+  .sidebar
+    block sidebar
+      p nothing
+  .primary
+    block primary
+      p nothing</code></pre>
+                <h2>Block append / prepend</h2>
+                <p>Jade allows you to replace (default), prepend, or append blocks. Suppose for example you have default scripts in a &quot;head&quot; block that you wish to utilize on every page, you might do this:</p>
+                <pre><code>html
+  head
+    block head
+      script(src=&#39;/vendor/jquery.js&#39;)
+      script(src=&#39;/vendor/caustic.js&#39;)
+  body
+    block content</code></pre>
+                <p>Now suppose you have a page of your application for a JavaScript game, you want some game related scripts as well as these defaults, you can simply append the block:</p>
+                <h2>extends layout</h2>
+                <pre><code>block append head
+  script(src=&#39;/vendor/three.js&#39;)
+  script(src=&#39;/game.js&#39;)</code></pre>
+                <p>When using block append or block prepend the block is optional:</p>
+                <h2>extends layout</h2>
+                <pre><code>append head
+  script(src=&#39;/vendor/three.js&#39;)
+  script(src=&#39;/game.js&#39;)</code></pre>
+            </div>
+            <!-- isi end -->
+            <!-- sidebar -->
+            <div class="col-sm-3">
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item">beranda</a>
+                    <a href="attributes.html" class="list-group-item">attributes</a>
+                    <a href="case.html" class="list-group-item">case</a>
+                    <a href="code.html" class="list-group-item">code</a>
+                    <a href="comments.html" class="list-group-item">comments</a>
+                    <a href="conditionals.html" class="list-group-item">conditionals</a>
+                    <a href="doctype.html" class="list-group-item">doctype</a>
+                    <a href="extends.html" class="list-group-item">extends</a>
+                    <a href="filters.html" class="list-group-item">filters</a>
+                    <a href="includes.html" class="list-group-item">includes</a>
+                    <a href="inheritance.html" class="list-group-item active">inheritance</a>
+                    <a href="interpolation.html" class="list-group-item">interpolation</a>
+                    <a href="iteration.html" class="list-group-item">iteration</a>
+                    <a href="mixins.html" class="list-group-item">mixins</a>
+                    <a href="plaintext.html" class="list-group-item">plain text</a>
+                    <a href="tags.html" class="list-group-item">tags</a>
+                </div>
+            </div>
+            <!-- sidebar end -->
+        </div>
+    </div>
+    <!-- body end -->
+    <!-- footer -->
+    <hr>
+    <p class="text-center">Disusun oleh <a href="http://muhammadzaini.com" target="_blank">Muhammad Zaini .com</a></p>
+    <br>
+    <!-- footer end -->
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

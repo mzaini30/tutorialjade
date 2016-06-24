@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Code - Jade</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="text-center">Jade</h1>
+            <p class="text-center">Code</p>
+        </div>
+    </div>
+    <!-- header end -->
+    <!-- body -->
+    <div class="container">
+        <div class="row">
+            <!-- isi -->
+            <div class="col-sm-9">
+                <h1>Code</h1>
+                <p>Jade makes it possible to write inline JavaScript code in your templates. There are three types of code.</p>
+                <h2>Unbuffered Code</h2>
+                <p>Unbuffered code starts with - does not add any output directly, e.g.</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>- for (var x = 0; x &lt; 3; x++)
+  li item</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;li&gt;item&lt;/li&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;li&gt;item&lt;/li&gt;</code></pre>
+                    </div>
+                </div>
+                <p>Jade also supports block unbuffered code:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>-
+  list = [&quot;Uno&quot;, &quot;Dos&quot;, &quot;Tres&quot;,
+          &quot;Cuatro&quot;, &quot;Cinco&quot;, &quot;Seis&quot;]
+each item in list
+  li= item</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;li&gt;Uno&lt;/li&gt;
+&lt;li&gt;Dos&lt;/li&gt;
+&lt;li&gt;Tres&lt;/li&gt;
+&lt;li&gt;Cuatro&lt;/li&gt;
+&lt;li&gt;Cinco&lt;/li&gt;
+&lt;li&gt;Seis&lt;/li&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Buffered Code</h2>
+                <p>Buffered code starts with = and outputs the result of evaluating the JavaScript expression in the template. For security, it is first HTML escaped:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>p
+  = &#39;This code is &lt;escaped&gt;!&#39;</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;p&gt;This code is &amp;lt;escaped&amp;gt;!
+&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+                <p>It can also be written inline with attributes, and supports the full range of JavaScript expressions:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>p= &#39;This code is&#39; + &#39; &lt;escaped&gt;!&#39;</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;p&gt;This code is &amp;lt;escaped&amp;gt;!&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+                <h2>Unescaped Buffered Code</h2>
+                <p>Unescaped buffered code starts with != and outputs the result of evaluating the JavaScript expression in the template. This does not do any escaping, so is not safe for user input:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>p
+  != &#39;This code is &lt;strong&gt;not&lt;/strong&gt; escaped!&#39;</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;p&gt;This code is &lt;strong&gt;not&lt;/strong&gt; escaped!
+&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+                <p>It can also be written inline with attributes, and supports the full range of JavaScript expressions:</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <pre><code>p!= &#39;This code is&#39; + &#39; &lt;strong&gt;not&lt;/strong&gt; escaped!&#39;</code></pre>
+                    </div>
+                    <div class="col-sm-6">
+                        <pre><code>&lt;p&gt;This code is &lt;strong&gt;not&lt;/strong&gt; escaped!&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+                <h3>Danger</h3>
+                <p>Unescaped buffered code can be dangerous. You must be sure to sanitize any user inputs to avoid cross-site scripting.</p>
+            </div>
+            <!-- isi end -->
+            <!-- sidebar -->
+            <div class="col-sm-3">
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item">beranda</a>
+                    <a href="attributes.html" class="list-group-item">attributes</a>
+                    <a href="case.html" class="list-group-item">case</a>
+                    <a href="code.html" class="list-group-item active">code</a>
+                    <a href="comments.html" class="list-group-item">comments</a>
+                    <a href="conditionals.html" class="list-group-item">conditionals</a>
+                    <a href="doctype.html" class="list-group-item">doctype</a>
+                    <a href="extends.html" class="list-group-item">extends</a>
+                    <a href="filters.html" class="list-group-item">filters</a>
+                    <a href="includes.html" class="list-group-item">includes</a>
+                    <a href="inheritance.html" class="list-group-item">inheritance</a>
+                    <a href="interpolation.html" class="list-group-item">interpolation</a>
+                    <a href="iteration.html" class="list-group-item">iteration</a>
+                    <a href="mixins.html" class="list-group-item">mixins</a>
+                    <a href="plaintext.html" class="list-group-item">plain text</a>
+                    <a href="tags.html" class="list-group-item">tags</a>
+                </div>
+            </div>
+            <!-- sidebar end -->
+        </div>
+    </div>
+    <!-- body end -->
+    <!-- footer -->
+    <hr>
+    <p class="text-center">Disusun oleh <a href="http://muhammadzaini.com" target="_blank">Muhammad Zaini .com</a></p>
+    <br>
+    <!-- footer end -->
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
